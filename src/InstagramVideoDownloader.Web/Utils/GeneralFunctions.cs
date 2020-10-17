@@ -49,7 +49,7 @@ namespace src.InstagramVideoDownloader.Web.Utils
 
         public async static void SaveVideo(string url, string fileName, IWebHostEnvironment hostEnvironment)
         {
-            var path = Path.Combine(hostEnvironment.WebRootPath + "/video", fileName);
+            var path = Path.Combine(hostEnvironment.WebRootPath, "video", fileName);
 
             using (var client = new HttpClient())
             using (var fileStream = new FileStream(path, FileMode.Create))
