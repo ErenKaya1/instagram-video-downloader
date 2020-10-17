@@ -26,11 +26,11 @@
                 </div>
             </div>
         </form>
-        @if (TempData["FilePath"] != null)
+        @if (TempData["FileName"] != null)
         {
             <div class="row">
                 <div class="col-md-12">
-                    <div class="alert alert-success">Video is ready. <a href="#" download="@Guid.NewGuid().ToString()">Click to download</a></div>
+                    <div class="alert alert-success">Video is ready. <a href="~/video/@TempData["FileName"]" download="@Guid.NewGuid().ToString()">Click to download.</a></div>
                 </div>
             </div>
         }
