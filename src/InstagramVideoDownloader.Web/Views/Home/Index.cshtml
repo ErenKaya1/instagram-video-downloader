@@ -1,1 +1,38 @@
-﻿
+﻿@model src.InstagramVideoDownloader.Web.Models.UrlViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-8">
+        @if (TempData["InvalidUrlError"] != null)
+        {
+            <div class="alert alert-danger"><b>@TempData["InvalidUrlError"]</b></div>
+        }
+        <form class="form" asp-controller="Home" asp-action="GetVideo" method="POST">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input asp-for="Url" class="form-control" placeholder="https://www.instagram.com/p/CGX73xij7ES/">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </div>
+            </div>
+        </form>
+        @if (TempData["FilePath"] != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success">Video is ready. <a href="#" download="@Guid.NewGuid().ToString()">Click to download</a></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
